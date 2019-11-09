@@ -1,0 +1,138 @@
+const naam = "Quincy"
+let lives = 3
+let score = 0
+let kleuren = [Colors.Red, Colors.Blue, Colors.Green, Colors.Yellow]
+let kleur = 0
+let loopChecker = true
+let gameIsStarted = false
+let side = 2
+let resettedGame = false
+
+input.buttonA.onEvent(ButtonEvent.Click, function () {
+    if (gameIsStarted == false) {
+        loopChecker = false
+        loops.pause(2000)
+        check()
+    } else if (resettedGame) {
+        resettedGame = false
+        timer()
+        setGame()
+    } else {
+        checkClick(0)
+    }
+
+})
+
+input.buttonB.onEvent(ButtonEvent.Click, function () {
+    if (gameIsStarted == false) {
+        loopChecker = false
+        loops.pause(2000)
+        check()
+    } else if (resettedGame) {
+        resettedGame = false
+        timer()
+        setGame()
+    } else {
+        checkClick(0)
+    }
+})
+
+console.log(`Welkom ${naam} bij dit superleuke spel!`)
+console.log('De bedoeling is om de obstakels te vermijden.')
+console.log('Knop A is Springen. Knop B is Duiken.')
+console.log('Maar nu eerst kies een kleur!')
+console.log('Zodra de kleur tevoorschijn komt, klik je op één van de twee Knoppen')
+
+for (let i = 0; i < 4; i++) {
+
+    if (!loopChecker) {
+        break
+        console.log("Hij is nu uit")
+    } else {
+        light.setAll(kleuren[i])
+        loops.pause(2000)
+        kleur = i
+        if (i == 3) {
+            i = -1
+
+        }
+    }
+}
+
+function check() {
+
+    console.log(`Keuze is gemaakt! Uw Kleur is: ${kleur}`)
+    light.clear()
+    setGame()
+    gameIsStarted = true
+    timer()
+}
+
+function setGame() {
+    light.clear()
+    side = Math.randomRange(0, 1)
+    for (let i = 0; i < 5; i++) {
+        light.setPixelColor(i + (side * 5), kleuren[kleur])
+    }
+
+}
+
+function timer() {
+    let i = 10
+    let timerInterval = setInterval(function () {
+        if (i == 30) {
+            console.log(`Je hebt nog maar ${i} secondes`)
+        }
+        if (i == 10) {
+            console.log(`Je hebt nog maar ${i} secondes`)
+        }
+        if (i == 5) {
+            console.log(`Je hebt nog maar ${i} secondes`)
+        }
+        if (i == 4) {
+            console.log(`Je hebt nog maar ${i} secondes`)
+        }
+        if (i == 3) {
+            console.log(`Je hebt nog maar ${i} secondes`)
+        }
+        if (i == 2) {
+            console.log(`Je hebt nog maar ${i} secondes`)
+        }
+        if (i == 1) {
+            console.log(`Je hebt nog maar ${i} seconde`)
+        }
+        if (i == 0) {
+            clearInterval(timerInterval)
+            console.log(`Tijd is om!`)
+            resetGame()
+        }
+        i--
+    }, 1000)
+}
+
+function checkClick(chosenSide: number) {
+    if (chosenSide == side) {
+        console.log("Dit is Juist")
+        score++
+        console.log(`Jouw huidige score: ${score}`)
+    } else {
+        console.log("Dit is Onjuist")
+        lives--
+        if (lives == 1) {
+            console.log(`Je hebt nog maar ${lives} leven`)
+        } else {
+            console.log(`Je hebt nog maar ${lives} levens`)
+        }
+        if (lives == 0) {
+            resetGame() //probleem resetgame stopt de timer niet.
+        }
+    }
+    setGame()
+}
+
+function resetGame() {
+    console.log(`Jouw Final Score: ${score}`)
+    score = 0
+    lives = 3
+    resettedGame = true
+}
