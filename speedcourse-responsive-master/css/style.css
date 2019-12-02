@@ -2,13 +2,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(230, 230, 230);
-    font-size:16px;
-    font-family: 'Alatsi', sans-serif;
+    font-size:16px; /*standaard fontsize. Als je dit veranderd, veranderd al de font-sizes met 'em' aan het einde.*/
+    font-family: 'Alatsi', sans-serif; /*font voor je tekst.*/
 }
 
 h1 {
     font-size:2em;
-    font-weight: bold;
+    font-weight: bold; /*Bold tekst */
 }
 
 div {
@@ -23,14 +23,14 @@ nav {
 }
 
 nav div {
-    font-size: 1.2em; /*em want dan hoef je alleen defont-size aan passen. Alles veranderd dan */
+    font-size: 1.2em; /* 'em' want dan hoef je alleen de font-size in de body aan te passen. Alles veranderd dan mee */
     flex-grow:1;
     text-align:center;
     padding:10px;
     color: white;
     background-color: #69a5ff;
-    cursor:pointer;
-    transition: all 0.4s ease-in;
+    cursor:pointer; /*cursor krijgt de 'pointer' ontwerp.*/
+    transition: all 0.4s ease-in; /*kleurovergang animatie*/
 }
 
 nav div:hover{
@@ -44,18 +44,18 @@ main {
 #header-image {
     width:100vw; /* altijd even breed als mijn browser scherm*/
     height:300px; /*|| height:30vh*/
-    background-image:url(../images/header.jpg);
+    background-image:url(../images/header.jpg); /*het selecteren van een plaatje uit de images folder*/
     background-size:cover;
-    /*backdrop-size:contain;*/
+    /*backdrop-size:contain;*/ /* <-- Dit is een alternatief. Bekijk zelf welke je fijner vindt. */
     background-position: center;
 }
 section {
     background-color: blueviolet;
-    padding: 10px;
-    margin: 30px;
+    padding: 20px; /*de section heeft een afstand tussen de de content en de rand*/
+    margin: 30px; /*de section heeft een afstand tussen de verschillende sections*/
 }
 section img {
-    width: 100%; /* 100% is 100% van mijn container */
+    width: 100%; /* 100% is 100% van mijn container (Ik snap zelf niet meer waarom ik dit heb opgeschreven) */
 }
 
 a, a:visited {
@@ -89,9 +89,9 @@ input[type=button], input[type=submit], input[type=reset] {
     font-size: 1.2em;
 }
 
-@media screen and (max-width: 600px) { /* als hij max 600px is dan onder elkaar*/
-    nav {/*eerst stond hier body*/
+@media screen and (max-width: 600px) { /* als de window max 600px is dan gaat alle content smooth onder elkaar de staan*/
+    nav {/* alles (je kan in plaats van 'nav', ook 'body doen).*/
         display:block
-        /*background-color: olive;*/
+        /*background-color: olive; (je kan ook nog de achtergrond veranderen)*/
     }
 }
