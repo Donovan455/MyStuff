@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(230, 230, 230);
+    font-size:16px;
+    font-family: 'Alatsi', sans-serif;
+}
+
+h1 {
+    font-size:2em;
+    font-weight: bold;
+}
+
+div {
+    box-sizing: border-box;
+    /*border: 1px solid #1500ff;*/
+
+}
+
+nav {
+    display: flex;
+
+}
+
+nav div {
+    font-size: 1.2em; /*em want dan hoef je alleen defont-size aan passen. Alles veranderd dan */
+    flex-grow:1;
+    text-align:center;
+    padding:10px;
+    color: white;
+    background-color: #69a5ff;
+    cursor:pointer;
+    transition: all 0.4s ease-in;
+}
+
+nav div:hover{
+            background-color: lightskyblue;
+        }
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#header-image {
+    width:100vw; /* altijd even breed als mijn browser scherm*/
+    height:300px; /*|| height:30vh*/
+    background-image:url(../images/header.jpg);
+    background-size:cover;
+    /*backdrop-size:contain;*/
+    background-position: center;
+}
+section {
+    background-color: blueviolet;
+    padding: 10px;
+    margin: 30px;
+}
+section img {
+    width: 100%; /* 100% is 100% van mijn container */
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    padding: 20px;
+    font-size: 1.4em;
+    background-color: #374755;
+    color: white;
+}
+
+input[type=text] input[type=email] {
+    font-size: 1.2em;
+}
+
+input[type=text]:invalid, input[type=email]:invalid {
+    border: 1px solid red;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #374755;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 600px) { /* als hij max 600px is dan onder elkaar*/
+    nav {/*eerst stond hier body*/
+        display:block
+        /*background-color: olive;*/
+    }
+}
